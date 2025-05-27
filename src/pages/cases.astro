@@ -7,8 +7,8 @@ import Filter from "../components/atoms/Filter.astro";
 import { Icon } from "astro-icon/components";
 
 // Fetcher data fra databasen og ligger i konstanten 'data'
-const key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imxtc3N4eGtod2x2Y2F2emxhYW1nIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDc3NDcyNTQsImV4cCI6MjA2MzMyMzI1NH0.9aAcHyVj06h_jagTgEHjwZ3AYPGJtTOOpJxhTslbFIU";
-const url = "https://lmssxxkhwlvcavzlaamg.supabase.co/rest/v1/twentyfour-cases";
+const url = import.meta.env.CASES_URL;
+const key = import.meta.env.CASES_KEY;
 
 const caseData = await fetch(url, {
   method: "GET",
