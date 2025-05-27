@@ -9,15 +9,14 @@ import GraphicIcons from "../atoms/GraphicIcons.astro";
 <footer class="grid grid-cols-4 lg:grid-cols-12 lg:grid-rows-5 px-[max(1rem,_50%_-_var(--content-width)_/_2)] overflow-hidden section-main relative lg:gap-x-6">
   <article class="pb-10 lg:pb-20 col-start-1 row-start-2 lg:row-span-3 lg:row-start-2 z-10">
     <h1 class="heading-xlarge text-text-primary pb-10 lg:pb-20">Skal vi tage en snak<br />om dit næste projekt?</h1>
-    <Button size="base" id="openModalBtnDesk">Kontakt os</Button>
+    <ul class="heading-small text-text-primary">
+      <li class="pb-4 lg:pb-7"><a href="tel:+45 42 41 61 60">+45 42 41 61 60</a></li>
+      <li class="pb-6 lg:pb-0"><a href="mailto:info@twentyfour.dk">info@twentyfour.dk</a></li>
+    </ul>
   </article>
 
   <section class="grid gap-7 col-start-1 row-start-5 row-span-1 z-10">
-    <section class="lg:flex lg:justify-between lg:items-center pb-6 lg:pb-0 border-b border-b-border-secondary">
-      <ul class="lg:flex lg:flex-row lg:items-center gap-7 heading-small text-text-primary">
-        <li class="pb-4 lg:pb-0"><a href="tel:+45 42 41 61 60">+45 42 41 61 60</a></li>
-        <li class="pb-6 lg:pb-0"><a href="mailto:info@twentyfour.dk">info@twentyfour.dk</a></li>
-      </ul>
+    <section class="lg:flex lg:justify-end lg:items-center pb-6 lg:pb-0 border-b border-b-border-secondary">
       <ModeToggle />
     </section>
 
