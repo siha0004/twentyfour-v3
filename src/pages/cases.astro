@@ -29,7 +29,7 @@ const sortedData = [...caseData].sort((a, b) => a.name.localeCompare(b.name, "da
         <Filter filter="webudvikling" />
         <Filter filter="integration" />
         <Filter filter="vedligeholdelse" />
-        <button data-clear class="capitalize cursor-pointer px-1 hover:border-b-2 hover:border-b-brand-raspberry border-b-brand-raspberry focus-visible:outline-1 focus-visible:rounded-small disabled:text-text-secondary">Ryd</button>
+        <button data-clear class="capitalize cursor-pointer px-1 hover:border-b-2 hover:border-b-border-primaryy border-b-border-primary focus-visible:outline-1 focus-visible:rounded-small disabled:text-text-secondary">Ryd</button>
       </div>
       <div class="flex gap-1 items-center glass max-w-3xs px-4 py-2 border-2 border-border-primary rounded-full">
         <input type="search" id="search" class="px-2 focus:outline-none focus:ring-0" />
@@ -76,10 +76,16 @@ const sortedData = [...caseData].sort((a, b) => a.name.localeCompare(b.name, "da
     // Opdater knappernes aktive styling
     filterButtons.forEach((button) => {
       const filter = button.getAttribute("data-filter");
+      const iconSpan = button.querySelector("[data-icon]");
+
       if (activeFilters.includes(filter)) {
-        button.classList.add("border-b-brand-raspberry");
+        button.classList.add("font-medium");
+        iconSpan?.classList.remove("opacity-0");
+        iconSpan?.classList.add("opacity-100");
       } else {
-        button.classList.remove("border-b-brand-raspberry");
+        button.classList.remove("font-medium");
+        iconSpan?.classList.add("opacity-0");
+        iconSpan?.classList.remove("opacity-100");
       }
     });
 
