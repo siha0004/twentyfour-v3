@@ -27,7 +27,13 @@ const sortedData = [...caseData].sort((a, b) => a.id - b.id);
 <MainLayout>
   <section id="hero" class="py-8 lg:pb-32">
     <IndexHero />
-    <video muted controls loop class="rounded-small w-full h-auto" src="https://lmssxxkhwlvcavzlaamg.supabase.co/storage/v1/object/public/video/hero/showcase.mp4"></video>
+    <div id="herovideo" class="relative">
+      <video id="myvideo" muted loop class="rounded-small w-full h-auto">
+        <source src="https://lmssxxkhwlvcavzlaamg.supabase.co/storage/v1/object/public/video/hero/showcase.mp4" type="video/mp4" />
+      </video>
+
+      <button id="playpausebtn" class="absolute inset-0 z-10 flex items-center justify-center cursor-pointer"> <div id="playicon" class="w-44 h-44 text-background-secondary text-heading-xlarge bg-text-primary/50 rounded-full flex items-center justify-center">▶</div> </button>
+    </div>
   </section>
 
   <section id="cases" class="py-8 lg:py-32 full-bleed">
@@ -59,3 +65,30 @@ const sortedData = [...caseData].sort((a, b) => a.id - b.id);
     <ClientLogoWrapper />
   </section>
 </MainLayout>
+
+<script>
+  const video = document.getElementById("myvideo");
+  const btn = document.getElementById("playpausebtn");
+  const iconDiv = document.getElementById("playicon");
+
+  btn.addEventListener("click", () => {
+    if (video.paused) {
+      video.play();
+    } else {
+      video.pause();
+    }
+  });
+
+  video.addEventListener("play", () => {
+    iconDiv.classList.add("hidden"); // skjul kun div-indholdet (▶)
+  });
+
+  video.addEventListener("pause", () => {
+    iconDiv.classList.remove("hidden"); // vis det igen
+  });
+
+  video.addEventListener("ended", () => {
+    video.currentTime = 0;
+    video.pause();
+  });
+</script>
