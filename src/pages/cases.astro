@@ -17,7 +17,7 @@ const caseData = await fetch(url, {
   },
 }).then((res) => res.json());
 
-console.log("Tester", caseData);
+const sortedData = [...caseDatas].sort((a, b) => a.name.localeCompare(b.name, "da"));
 ---
 
 <MainLayout title="Cases | Twentyfour">
@@ -37,7 +37,7 @@ console.log("Tester", caseData);
       </div>
     </header>
     <ul class="grid grid-cols-3 gap-x-5 gap-y-11 items-start">
-      {caseData.map((oneCase) => <CardCases filters={oneCase.services.join(",")} data={oneCase} variant={oneCase.thumbnail_type} />)}
+      {sortedData.map((oneCase) => <CardCases filters={oneCase.services.join(",")} data={oneCase} variant={oneCase.thumbnail_type} />)}
       <!-- {cases.map((oneCase) => <CardCases filters={oneCase.services.join(",")} data={oneCase} variant={oneCase.thumbnail} />)} -->
     </ul>
     <footer class="grid place-content-center">

@@ -17,6 +17,8 @@ const caseData = await fetch(url, {
     apikey: key,
   },
 }).then((res) => res.json());
+
+const sortedData = [...caseData].sort((a, b) => a.id - b.id);
 ---
 
 <MainLayout title="Services | Twentyfour">
@@ -42,5 +44,5 @@ const caseData = await fetch(url, {
     </article>
     <ScrollingContainer />
   </section>
-  <section class="py-8 lg:pb-32"><SectionCases data={caseData} /></section>
+  <section class="py-8 lg:pb-32"><SectionCases data={sortedData} /></section>
 </MainLayout>
