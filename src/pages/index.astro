@@ -1,7 +1,61 @@
 ---
-import MainLayouts from "../layouts/MainLayouts.astro";
+import MainLayout from "../layouts/MainLayout.astro";
+
+import ClientLogoWrapper from "../components/organisms/ClientLogoWrapper.astro";
+import Link from "../components/atoms/Link.astro";
+import CardServices from "../components/molecules/CardServices.astro";
+import IndexHero from "../components/organisms/IndexHero.astro";
+import SectionCases from "../components/organisms/SectionCases.astro";
+import AboutGallery from "../components/organisms/AboutGallery.astro";
+
+import services from "../data/services.json";
+
+// Fetcher data fra databasen og ligger i konstanten 'data'
+const key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imxtc3N4eGtod2x2Y2F2emxhYW1nIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDc3NDcyNTQsImV4cCI6MjA2MzMyMzI1NH0.9aAcHyVj06h_jagTgEHjwZ3AYPGJtTOOpJxhTslbFIU";
+const url = "https://lmssxxkhwlvcavzlaamg.supabase.co/rest/v1/twentyfour-cases";
+
+const caseData = await fetch(url, {
+  method: "GET",
+  headers: {
+    apikey: key,
+  },
+}).then((res) => res.json());
+
+console.log("Tester", caseData);
 ---
 
-<MainLayouts>
-  <h1>Main Layouts</h1>
-</MainLayouts>
+<MainLayout>
+  <section id="hero" class="py-8 lg:pb-32">
+    <IndexHero />
+    <video muted controls loop class="rounded-small w-full h-auto" src="https://lmssxxkhwlvcavzlaamg.supabase.co/storage/v1/object/public/video/hero/showcase.mp4"></video>
+  </section>
+
+  <section id="cases" class="py-8 lg:py-32 full-bleed">
+    <SectionCases data={caseData} />
+  </section>
+
+  <section id="services" class="py-8 lg:py-32 grid lg:grid-cols-[4fr_8fr] lg:gap-20 relative">
+    <article class="pb-8 lg:pb-0 sticky top-32 self-start">
+      <h1 class="text-heading-tagline pb-2 text-text-secondary">Services</h1>
+      <h2 class="text-heading-small pb-6 lg:pb-10">Én partner til hele rejsen – fra idé til design, udvikling, drift og skalering</h2>
+      <Link href="/services" variant="ButtonSecondary" size="large" ikon="ButtonSecondary">Alle services</Link>
+    </article>
+    <ul class="grid md:grid-cols-2 gap-5">
+      {
+        services.map((service) => {
+          return <CardServices data={service} />;
+        })
+      }
+    </ul>
+  </section>
+
+  <section id="om" class="py-8 lg:py-32"><AboutGallery /></section>
+
+  <section class="full-bleed overflow-hidden py-8 lg:py-32">
+    <article class="pb-8 lg:pb-10">
+      <h1 class="text-heading-tagline pb-2 text-text-secondary">Vores kunder</h1>
+      <h2 class="text-heading-small md:max-w-2xl">Vi arbejder med både små og store virksomheder - Her er et lille udpluk fra de sidste 10 år.</h2>
+    </article>
+    <ClientLogoWrapper />
+  </section>
+</MainLayout>
