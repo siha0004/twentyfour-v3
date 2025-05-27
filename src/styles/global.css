@@ -82,7 +82,7 @@
   --text-heading-medium: clamp(1.5rem, 1.2473rem + 0.8602vw, 2rem);
   --text-heading-large: clamp(1.75rem, 1.1183rem + 2.1505vw, 3rem);
   --text-heading-xlarge: clamp(4rem, 2.9892rem + 3.4409vw, 6rem);
-  --text-heading-huge: clamp(3.75rem, -0.7352rem + 15.2688vw, 12.625rem);
+  --text-heading-huge: clamp(4rem, 0.0202rem + 13.5484vw, 11.875rem);
 
   --text-heading-xsmall--line-height: calc(var(--text-heading-xsmall) * 110%);
   --text-heading-small--line-height: calc(var(--text-heading-small) * 110%);
@@ -213,6 +213,16 @@
 
   .section-main {
     @apply py-32 border-b border-b-border-secondary;
+  }
+
+  .large {
+    width: clamp(7.5rem, 4.8038rem + 11.0613vw, 16.75rem);
+  }
+  .medium {
+    width: clamp(4.5rem, 3.1155rem + 5.6801vw, 9.25rem);
+  }
+  .small {
+    width: clamp(2rem, 1.7085rem + 1.1958vw, 3rem);
   }
 
   .customcursor {
