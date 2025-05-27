@@ -1,0 +1,47 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+import CaseGallery from "../../components/organisms/CaseGallery.astro";
+import CaseHero from "../../components/organisms/CaseHero.astro";
+import CaseMoreCases from "../../components/organisms/CaseMoreCases.astro";
+import CaseProcess from "../../components/organisms/CaseProcess.astro";
+import CaseResult from "../../components/organisms/CaseResult.astro";
+import CaseTestimonial from "../../components/organisms/CaseTestimonial.astro";
+import Hero from "../../components/organisms/Hero.astro";
+
+// Laver statiske stier til hvert element i databasen
+export async function getStaticPaths() {
+  const key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imxtc3N4eGtod2x2Y2F2emxhYW1nIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDc3NDcyNTQsImV4cCI6MjA2MzMyMzI1NH0.9aAcHyVj06h_jagTgEHjwZ3AYPGJtTOOpJxhTslbFIU";
+  const url = "https://lmssxxkhwlvcavzlaamg.supabase.co/rest/v1/twentyfour-cases";
+  // Henter dataen med fetch
+  const data = await fetch(url, {
+    method: "GET",
+    headers: {
+      apikey: key,
+    },
+  }).then((res) => res.json());
+
+  //Benytter map til at lave en underside for hvert element i databasen
+  return data.map((elm) => {
+    return {
+      // Bruger slugget fra database (elm.slug) og navngiver filen dét
+      // Det første 'slug' henviser til det slug, som er i mit filnavn (som er [slug].astro)
+      // Det næste 'slug' henviser til en kolonne i databasen
+      params: { slug: elm.slug },
+      props: { caseData: elm },
+    };
+  });
+}
+
+// Definere en prop, som dataen der er fetchet
+const { caseData } = Astro.props;
+const { name, link, year, services, intro_heading, intro_text, resultat_heading, resultat_text, brandcolor_primary, brandcolor_secondary, quote, quote_by, proces_heading, proces_text, grid } = caseData;
+---
+
+<MainLayout title="Services | Twentyfour">
+  {intro_heading ? <CaseHero name={name} link={link} year={year} services={services} heading={intro_heading} text={intro_text} /> : <Hero button="true" variant="default" title="Der Bygges" text="Denne side er endnu ikke bygget færdig - men der arbejdes på sagen." />}
+  {resultat_heading && <CaseResult heading={resultat_heading} text={resultat_text} colorPri={brandcolor_primary} colorSec={brandcolor_secondary} />}
+  {quote && <CaseTestimonial quote={quote} by={quote_by} />}
+  {quote && <CaseProcess heading={proces_heading} text={proces_text} colorPri={brandcolor_primary} colorSec={brandcolor_secondary} />}
+  {grid && <CaseGallery grid={grid} />}
+  {intro_heading && <CaseMoreCases />}
+</MainLayout>
