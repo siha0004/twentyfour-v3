@@ -3,8 +3,6 @@ import { Image } from "astro:assets";
 
 const { grid, data } = Astro.props;
 
-// import img3 from "../../assets/images/grid_image_3_kirk.png";
-
 let redStyling;
 let blueStyling;
 let yellowStyling;
@@ -21,9 +19,9 @@ if (grid == "1") {
   yellowStyling = "col-start-2 col-span-2 row-start-5 row-span-2";
   greenStyling = "col-start-4 col-span-2 row-start-5 row-span-2";
 } else if (grid == "3") {
-  redStyling = "aspect-[7/5] col-start-5 col-span-7 row-span-5";
-  blueStyling = "aspect-[3/6] col-start-2 col-span-3 row-start-2 row-span-6";
-  yellowStyling = "aspect-square col-start-5 col-span-3 row-start-6 row-span-3";
+  redStyling = "col-start-2 col-span-3 row-start-2 row-span-6";
+  blueStyling = "col-start-5 col-span-7 row-span-5";
+  yellowStyling = "col-start-5 col-span-3 row-start-6 row-span-3";
   greenStyling = "hidden";
 }
 
@@ -40,16 +38,16 @@ if (!images[img4]) throw new Error(`"${img4}" does not exist in glob: "src/asset
 ---
 
 <section class="section-main grid gap-3 sm:grid-cols-12">
-  <div id="blue" class="bg-[#6297E5] rounded-small" class:list={[blueStyling]}>
+  <div id="blue" class="rounded-small" class:list={[blueStyling]}>
     <Image src={img1} width={1920} height={1080} alt="Produkt billede af " class="rounded-small object-cover" />
   </div>
-  <div id="red" class="bg-[#E56262] w-full min-h-12 rounded-small" class:list={[redStyling]}>
+  <div id="red" class="rounded-small" class:list={[redStyling]}>
     <Image src={img2} width={1920} height={1080} alt="Hejsa" class="rounded-small object-cover" />
   </div>
-  <div id="yellow" class="bg-[#E5C262] w-full min-h-12 rounded-small" class:list={[yellowStyling]}>
+  <div id="yellow" class="rounded-small" class:list={[yellowStyling]}>
     <Image src={img3} width={1920} height={1080} alt="Hejsa" class="rounded-small object-cover" />
   </div>
-  <div id="green" class="bg-[#7DCA78] w-full min-h-12 rounded-small" class:list={[greenStyling]}>
+  <div id="green" class="rounded-small" class:list={[greenStyling]}>
     <Image src={img4} width={1920} height={1080} alt="Hejsa" class="rounded-small object-cover" />
   </div>
 </section>
