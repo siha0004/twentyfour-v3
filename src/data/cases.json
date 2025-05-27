@@ -1,0 +1,6 @@
+[
+  { "company": "Vestas", "services": ["webudvikling", "integration", "vedligeholdelse"], "link": "vestas", "thumbnail": "video", "img": "/src/assets/images/nordhus/thumbnail_image_nordhus.png" },
+  { "company": "Kirk Kapital", "services": ["design", "webudvikling"], "link": "kirkkapital", "img": "/src/assets/images/nordhus/thumbnail_image_nordhus.png" },
+  { "company": "Mond", "services": ["integration", "design"], "link": "mond", "thumbnail": "image", "img": "/src/assets/images/nordhus/thumbnail_image_nordhus.png" },
+  { "company": "Mond", "services": ["integration", "design"], "link": "mond", "thumbnail": "image", "img": "/src/assets/images/nordhus/thumbnail_image_nordhus.png" }
+]
