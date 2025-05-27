@@ -43,7 +43,7 @@ console.log("! ! ! ´", hero);
 <MainLayout title="Services | Twentyfour">
   {hero ? <CaseHero data={hero} /> : <Hero button="true" variant="default" title="Der Bygges" text="Denne side er endnu ikke bygget færdig - men der arbejdes på sagen." />}
   <!-- {intro_heading ? <CaseHero name={name} link={link} year={year} services={services} heading={intro_heading} text={intro_text} /> : <Hero button="true" variant="default" title="Der Bygges" text="Denne side er endnu ikke bygget færdig - men der arbejdes på sagen." />} -->
-  <!-- {result && <CaseResult data={result} />} -->
+  {result && <CaseResult data={result} />}
   {quote && <CaseTestimonial data={quote} />}
   {quote && <CaseProcess data={process} />}
   {grid && <CaseGallery data={grid} grid={grid_type} />}
