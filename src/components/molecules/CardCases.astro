@@ -14,17 +14,16 @@ let variantClass = "hidden";
 if (variant === "video") {
   variantClass = "block";
 }
-
-// const images = import.meta.glob<{ default: ImageMetadata }>("/src/assets/images/*.{jpeg,jpg,png,gif,webp}");
-// if (!images[thumbnail_img]) throw new Error(`"${thumbnail_img}" does not exist in glob: "src/assets/images/*.{jpeg,jpg,png,gif,webp}"`);
+const images = import.meta.glob<{ default: ImageMetadata }>("/src/assets/images/*.{jpeg,jpg,png,gif,webp}");
+if (!images[thumbnail_img]) throw new Error(`"${thumbnail_img}" does not exist in glob: "src/assets/images/*.{jpeg,jpg,png,gif,webp}"`);
 ---
 
 <li data-services={filters} class="grid content-start relative case-card min-w-[163px]">
   <article>
     <header class="grid grid-cols-1 customcursor">
       <div class="aspect-square col-start-1 row-start-1 col-span-1 rounded-small">
-        <Image src={tester} alt="Hejsa" class="object-cover aspect-square rounded-small" />
-        <!-- <Image src={images[thumbnail_img]()} alt={name} class="object-cover aspect-square rounded-small" /> -->
+        <!-- <Image src={tester} alt="Hejsa" class="object-cover aspect-square rounded-small" /> -->
+        <Image src={images[thumbnail_img]()} alt={name} class="object-cover aspect-square rounded-small" />
       </div>
       <div class:list={[blurStyle, variantClass]}></div>
       <div class:list={[videoStyle, variantClass]}>
