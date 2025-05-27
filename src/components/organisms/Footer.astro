@@ -3,6 +3,7 @@ import Link from "../atoms/Link.astro";
 import Button from "../atoms/Button.astro";
 import { Icon } from "astro-icon/components";
 import ModeToggle from "../molecules/ModeToggle.astro";
+import GraphicIcons from "../atoms/GraphicIcons.astro";
 ---
 
 <footer class="grid grid-cols-4 lg:grid-cols-12 lg:grid-rows-5 px-[max(1rem,_50%_-_var(--content-width)_/_2)] overflow-hidden section-main relative lg:gap-x-6">
@@ -17,7 +18,6 @@ import ModeToggle from "../molecules/ModeToggle.astro";
         <li class="pb-4 lg:pb-0"><a href="tel:+45 42 41 61 60">+45 42 41 61 60</a></li>
         <li class="pb-6 lg:pb-0"><a href="mailto:info@twentyfour.dk">info@twentyfour.dk</a></li>
       </ul>
-      <!-- <div class="self-end">toggle</div> -->
       <ModeToggle />
     </section>
 
@@ -31,17 +31,16 @@ import ModeToggle from "../molecules/ModeToggle.astro";
       </div>
       <div>
         <ul class="lg:flex lg:flex-row lg:gap-4">
-          <li class="pb-2 lg:pb-0"><Link href="/build" variant="LinkPrimary" target="_blank" size="p-0">Cookiepolitik</Link></li>
+          <li class="pb-2 lg:pb-0"><Link href="/build" variant="LinkPrimary" target="_blank" size="p-0" iconPosition="none">Cookiepolitik</Link></li>
           <li>
-            <Link href="https://dk.linkedin.com/company/twentyfourdigitalagency" variant="LinkPrimary" target="_blank" size="p-0">Linkedin</Link>
+            <Link href="https://dk.linkedin.com/company/twentyfourdigitalagency" variant="LinkPrimary" target="_blank" size="p-0" iconPosition="none">Linkedin</Link>
           </li>
         </ul>
       </div>
     </section>
   </section>
 
-  <div class="col-start-3 col-span-1 row-start-1 row-span-1 lg:col-start-4"><Icon name="fan" class="text-graphic-medium" /></div>
-  <div class="col-start-3 col-span-1 row-start-3 row-span-1 lg:col-start-10 lg:row-start-4"><Icon name="butterfly" class="text-graphic-small" /></div>
-  <div class="col-start-3 col-span-2 row-span-2 row-start-4 lg:col-start-11 lg:row-start-4 relative right-[-12vw]"><Icon name="square" class="text-graphic-large" /></div>
+  <GraphicIcons id="" shape="fan" size="medium" position="col-start-3 col-span-1 row-start-1 row-span-1 lg:col-start-4" />
+  <GraphicIcons id="" shape="butterfly" size="small" position="col-start-3 col-span-1 row-start-3 row-span-1 lg:col-start-10 lg:row-start-4" />
+  <GraphicIcons id="" shape="square" size="large" position="col-start-3 col-span-2 row-span-2 row-start-4 lg:col-start-11 lg:row-start-4 relative right-[-8vw]" />
 </footer>
-<!-- lg:h-[90vh] lg:min-h-[800px] lg:max-h-[1000px] -->
