@@ -24,12 +24,18 @@ const sortedData = [...caseData].sort((a, b) => a.name.localeCompare(b.name, "da
   <Hero variant="default" title="Cases" text="I mere end 10 år har vi hjulpet virksomheder med at løse digitale udfordringer – store som små. Vi elsker at finde løsninger, der faktisk virker – også når tingene bliver komplekse. " />
   <section class="py-32 grid gap-10">
     <header class="flex justify-between">
-      <div id="filters" class="flex gap-4 py-2 px-6 glass rounded-full border-2 border-border-primary">
-        <Filter filter="design" />
-        <Filter filter="webudvikling" />
-        <Filter filter="integration" />
-        <Filter filter="vedligeholdelse" />
-        <button data-clear class="capitalize cursor-pointer px-1 hover:border-b-2 hover:border-b-border-primaryy border-b-border-primary focus-visible:outline-1 focus-visible:rounded-small disabled:text-text-secondary">Ryd</button>
+      <div id="filters" class="py-2 px-6 glass rounded-large border-2 border-border-primary w-fit grid gap-2 justify-items-start sm:flex sm:flex-row sm:gap-4 sm:rounded-full">
+        <!-- Toggle-knap til mobil -->
+        <button id="toggleFilters" class="sm:hidden font-medium text-sm">Filtre</button>
+
+        <!-- Selve filter-knapperne -->
+        <div id="filterOptions" class="flex-col sm:gap-4 hidden sm:!flex sm:flex-row">
+          <Filter filter="design" />
+          <Filter filter="webudvikling" />
+          <Filter filter="integration" />
+          <Filter filter="vedligeholdelse" />
+          <button data-clear class="capitalize cursor-pointer px-1 hover:border-b-2 hover:border-b-border-primaryy border-b-border-primary focus-visible:outline-1 focus-visible:rounded-small disabled:text-text-secondary">Ryd</button>
+        </div>
       </div>
       <div class="flex gap-1 items-center glass max-w-3xs px-4 py-2 border-2 border-border-primary rounded-full">
         <input type="search" id="search" class="px-2 focus:outline-none focus:ring-0" />
@@ -50,6 +56,13 @@ const sortedData = [...caseData].sort((a, b) => a.name.localeCompare(b.name, "da
   const clearButton = document.querySelector("[data-clear]");
   const cards = document.querySelectorAll(".case-card");
   const searchInput = document.getElementById("search");
+  const toggleButton = document.getElementById("toggleFilters");
+  const filterOptions = document.getElementById("filterOptions");
+
+  toggleButton?.addEventListener("click", () => {
+    filterOptions.classList.toggle("hidden");
+    toggleButton.textContent = filterOptions.classList.contains("hidden") ? "Filtre" : "Luk filtre";
+  });
 
   let activeFilters = [];
 
