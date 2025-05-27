@@ -38,7 +38,6 @@ const sortedData = [...caseData].sort((a, b) => a.name.localeCompare(b.name, "da
     </header>
     <ul class="grid grid-cols-3 gap-x-5 gap-y-11 items-start">
       {sortedData.map((oneCase) => <CardCases filters={oneCase.services.join(",")} data={oneCase} variant={oneCase.thumbnail_type} />)}
-      <!-- {cases.map((oneCase) => <CardCases filters={oneCase.services.join(",")} data={oneCase} variant={oneCase.thumbnail} />)} -->
     </ul>
     <footer class="grid place-content-center">
       <p>Pagination</p>
@@ -78,9 +77,9 @@ const sortedData = [...caseData].sort((a, b) => a.name.localeCompare(b.name, "da
     filterButtons.forEach((button) => {
       const filter = button.getAttribute("data-filter");
       if (activeFilters.includes(filter)) {
-        button.classList.add("border-b-2");
+        button.classList.add("border-b-brand-raspberry");
       } else {
-        button.classList.remove("border-b-2");
+        button.classList.remove("border-b-brand-raspberry");
       }
     });
 
