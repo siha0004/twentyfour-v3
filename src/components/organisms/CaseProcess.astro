@@ -1,16 +1,27 @@
 ---
 import WrapperCaseImage from "../atoms/WrapperCaseImage.astro";
+import { Image } from "astro:assets";
 
 const { data } = Astro.props;
 
 const heading = data.find((item) => item.heading)?.heading;
 const text = data.find((item) => item.text)?.text;
+const mockup = data.find((item) => item.mockup)?.mockup;
+const img = data.find((item) => item.img)?.img;
+
+const images = import.meta.glob<{ default: ImageMetadata }>("/src/assets/images/*.{jpeg,jpg,png,gif,webp}");
+if (!images[mockup]) throw new Error(`"${mockup}" does not exist in glob: "src/assets/images/*.{jpeg,jpg,png,gif,webp}"`);
+if (!images[img]) throw new Error(`"${img}" does not exist in glob: "src/assets/images/*.{jpeg,jpg,png,gif,webp}"`);
 ---
 
 <section class="section-main grid md:grid-cols-2 gap-6 md:gap-12">
   <div class="grid gap-3 md:gap-8 @container">
-    <WrapperCaseImage hexcolor="bg-[#282b4c]" />
-    <WrapperCaseImage hexcolor="bg-[#282b4c]" />
+    <div class=`bg-[#282b4c] px-7 py-4 @sm:px-9 @sm:py-6 @md:px-14 @md:py-8 rounded-small`>
+      <Image src={mockup} width={1920} height={1080} alt="Hejsa" class="rounded-small" />
+    </div>
+    <div class=`bg-[#282b4c] px-7 py-4 @sm:px-9 @sm:py-6 @md:px-14 @md:py-8 rounded-small`>
+      <Image src={img} width={1920} height={1080} alt="Hejsa" class="rounded-small" />
+    </div>
   </div>
   <article class="">
     <h2 class="heading-tagline">Proces</h2>
