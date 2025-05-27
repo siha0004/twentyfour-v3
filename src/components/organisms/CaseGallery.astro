@@ -1,7 +1,7 @@
 ---
 import { Image } from "astro:assets";
 
-const { grid, data } = Astro.props;
+const { name, grid, data } = Astro.props;
 
 let redStyling;
 let blueStyling;
@@ -39,15 +39,15 @@ if (!images[img4]) throw new Error(`"${img4}" does not exist in glob: "src/asset
 
 <section class="section-main grid gap-3 sm:grid-cols-12">
   <div id="blue" class="rounded-small" class:list={[blueStyling]}>
-    <Image src={img1} width={1920} height={1080} alt="Produkt billede af " class="rounded-small object-cover" />
+    <Image src={img1} width={1920} height={1080} alt={`Billede af ${name} mockup`} class="rounded-small object-cover" />
   </div>
   <div id="red" class="rounded-small" class:list={[redStyling]}>
-    <Image src={img2} width={1920} height={1080} alt="Hejsa" class="rounded-small object-cover" />
+    <Image src={img2} width={1920} height={1080} alt={`Billede af ${name} mock up`} class="rounded-small object-cover" />
   </div>
   <div id="yellow" class="rounded-small" class:list={[yellowStyling]}>
-    <Image src={img3} width={1920} height={1080} alt="Hejsa" class="rounded-small object-cover" />
+    <Image src={img3} width={1920} height={1080} alt={`Billede af ${name} designvalg`} class="rounded-small object-cover" />
   </div>
   <div id="green" class="rounded-small" class:list={[greenStyling]}>
-    <Image src={img4} width={1920} height={1080} alt="Hejsa" class="rounded-small object-cover" />
+    <Image src={img4} width={1920} height={1080} alt={`Billede af et udpluk fra ${name} designsystem`} class="rounded-small object-cover" />
   </div>
 </section>

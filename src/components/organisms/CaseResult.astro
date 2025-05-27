@@ -2,7 +2,7 @@
 import WrapperCaseImage from "../atoms/WrapperCaseImage.astro";
 import { Image } from "astro:assets";
 
-const { data } = Astro.props;
+const { name, data } = Astro.props;
 
 console.log(data);
 
@@ -24,10 +24,10 @@ if (!images[image2]) throw new Error(`"${image2}" does not exist in glob: "src/a
   </article>
   <div class="grid gap-3 md:gap-8 @container">
     <div class=`bg-[#282b4c] px-7 py-4 @sm:px-9 @sm:py-6 @md:px-14 @md:py-8 rounded-small`>
-      <Image src={image} width={1920} height={1080} alt="Hejsa" class="rounded-small" />
+      <Image src={image} width={1920} height={1080} alt={`Billede af løsning til ${name} website`} class="rounded-small" />
     </div>
     <div class=`bg-[#282b4c] px-7 py-4 @sm:px-9 @sm:py-6 @md:px-14 @md:py-8 rounded-small`>
-      <Image src={image2} width={1920} height={1080} alt="Hejsa" class="rounded-small" />
+      <Image src={image2} width={1920} height={1080} alt={`Billede af løsning leveret til ${name}`} class="rounded-small" />
     </div>
   </div>
 </section>

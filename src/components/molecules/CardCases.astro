@@ -20,7 +20,7 @@ if (!images[thumbnail_img]) throw new Error(`"${thumbnail_img}" does not exist i
   <article>
     <header class="grid grid-cols-1 customcursor">
       <div class="aspect-square col-start-1 row-start-1 col-span-1 rounded-small">
-        <Image src={images[thumbnail_img]()} alt={name} class="object-cover aspect-square rounded-small" />
+        <Image src={images[thumbnail_img]()} alt={`Thumbnail til ${name} showcase`} class="object-cover aspect-square rounded-small" />
       </div>
       <div class:list={[blurStyle, variantClass]}></div>
       <div class:list={[videoStyle, variantClass]}>
