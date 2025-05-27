@@ -1,5 +1,8 @@
 ---
-const { quote, by } = Astro.props;
+const { data } = Astro.props;
+
+const quote = data.find((item) => item.quote)?.quote;
+const by = data.find((item) => item.by)?.by;
 ---
 
 <section class="section-main grid place-content-center">

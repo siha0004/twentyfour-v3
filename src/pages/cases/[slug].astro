@@ -34,14 +34,18 @@ export async function getStaticPaths() {
 
 // Definere en prop, som dataen der er fetchet
 const { caseData } = Astro.props;
-const { name, link, year, services, intro_heading, intro_text, resultat_heading, resultat_text, brandcolor_primary, brandcolor_secondary, quote, quote_by, proces_heading, proces_text, grid } = caseData;
+const { hero, result, quote, grid, grid_type, process } = caseData;
+
+console.log("! ! ! ! ! ! !", result);
+console.log("! ! ! ´", hero);
 ---
 
 <MainLayout title="Services | Twentyfour">
-  {intro_heading ? <CaseHero name={name} link={link} year={year} services={services} heading={intro_heading} text={intro_text} /> : <Hero button="true" variant="default" title="Der Bygges" text="Denne side er endnu ikke bygget færdig - men der arbejdes på sagen." />}
-  {resultat_heading && <CaseResult heading={resultat_heading} text={resultat_text} colorPri={brandcolor_primary} colorSec={brandcolor_secondary} />}
-  {quote && <CaseTestimonial quote={quote} by={quote_by} />}
-  {quote && <CaseProcess heading={proces_heading} text={proces_text} colorPri={brandcolor_primary} colorSec={brandcolor_secondary} />}
-  {grid && <CaseGallery grid={grid} />}
+  {hero ? <CaseHero data={hero} /> : <Hero button="true" variant="default" title="Der Bygges" text="Denne side er endnu ikke bygget færdig - men der arbejdes på sagen." />}
+  <!-- {intro_heading ? <CaseHero name={name} link={link} year={year} services={services} heading={intro_heading} text={intro_text} /> : <Hero button="true" variant="default" title="Der Bygges" text="Denne side er endnu ikke bygget færdig - men der arbejdes på sagen." />} -->
+  {result && <CaseResult data={result} />}
+  {quote && <CaseTestimonial data={quote} />}
+  {quote && <CaseProcess data={process} />}
+  {grid && <CaseGallery data={grid} grid={grid_type} />}
   <!-- {intro_heading && <CaseMoreCases />} -->
 </MainLayout>

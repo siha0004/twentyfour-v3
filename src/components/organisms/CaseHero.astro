@@ -1,5 +1,12 @@
 ---
-const { name, link, year, services, heading, text } = Astro.props;
+const { name, data } = Astro.props;
+
+const year = data.find((item) => item.year)?.year;
+const services = data.find((item) => item.services)?.services;
+const link = data.find((item) => item.link)?.link;
+const cover = data.find((item) => item.cover)?.cover;
+const heading = data.find((item) => item.heading)?.heading;
+const text = data.find((item) => item.text)?.text;
 
 import { Image } from "astro:assets";
 

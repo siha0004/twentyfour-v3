@@ -1,9 +1,12 @@
 ---
 import WrapperCaseImage from "../atoms/WrapperCaseImage.astro";
 
-const { heading, text, colorPri, colorSec } = Astro.props;
+const { data } = Astro.props;
 
-console.log("FARVE", colorPri);
+const heading = data.find((item) => item.heading)?.heading;
+const text = data.find((item) => item.text)?.text;
+
+console.log("FARVE", heading);
 ---
 
 <section class="section-main grid md:grid-cols-2 gap-6 md:gap-12">
@@ -14,6 +17,6 @@ console.log("FARVE", colorPri);
   </article>
   <div class="grid gap-3 md:gap-8 @container">
     <WrapperCaseImage hexcolor="bg-[#282b4c]" />
-    <WrapperCaseImage hexcolor={colorSec} />
+    <WrapperCaseImage hexcolor="bg-[#282b4c]" />
   </div>
 </section>
