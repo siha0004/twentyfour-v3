@@ -1,0 +1,54 @@
+---
+import ClientLogoRow from "../molecules/ClientLogoRow.astro";
+---
+
+<section class="grid gap-4 lg:gap-10 full-bleed">
+  <div class="client-row-wrapper left-move">
+    <ClientLogoRow direction="right" variant="primary" LogoName1="bornholm" LogoName2="koncerthuset" LogoName3="orsted" LogoName4="vestas" LogoName5="hofor" LogoName6="koncerthuset" LogoName7="orsted" LogoName8="vestas" LogoName9="hofor" LogoName10="hofor" LogoName11="hofor" LogoName12="hofor" />
+  </div>
+  <div class="client-row-wrapper right-move">
+    <ClientLogoRow direction="left" variant="secondary" LogoName1="orsted" LogoName2="vestas" LogoName3="bornholm" LogoName4="orsted" LogoName5="koncerthuset" LogoName6="vestas" LogoName7="koncerthuset" LogoName8="hofor" LogoName9="bornholm" LogoName10="hofor" LogoName11="hofor" LogoName12="hofor" />
+  </div>
+  <div class="client-row-wrapper left-move">
+    <ClientLogoRow direction="right" variant="primary" LogoName1="koncerthuset" LogoName2="orsted" LogoName3="vestas" LogoName4="hofor" LogoName5="bornholm" LogoName6="koncerthuset" LogoName7="orsted" LogoName8="vestas" LogoName9="hofor" LogoName10="hofor" LogoName11="hofor" LogoName12="hofor" />
+  </div>
+</section>
+
+<script>
+  // Import af GSAP
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+  gsap.registerPlugin(ScrollTrigger);
+
+  // HTML elementer med denne klasse får en af de følgende animationer
+  const leftWrappers = document.querySelectorAll(".left-move");
+  const rightWrappers = document.querySelectorAll(".right-move");
+
+  // Højre mod venstre animation
+  leftWrappers.forEach((wrapper) => {
+    gsap.from(wrapper, {
+      x: 100, // element starter 100 px til højre fra sin normale position
+      duration: 1,
+      ease: "power1.out",
+      scrollTrigger: {
+        trigger: wrapper, // animation triggers når wrapper kommer i view
+        start: "top 80%", // starter når wrapper er 80% fra toppen af viewport
+        scrub: true, // animation er synkron med scroll
+      },
+    });
+  });
+
+  // Venstre mod højre animation
+  rightWrappers.forEach((wrapper) => {
+    gsap.from(wrapper, {
+      x: -100,
+      duration: 1,
+      ease: "power1.out",
+      scrollTrigger: {
+        trigger: wrapper,
+        start: "top 80%",
+        scrub: true,
+      },
+    });
+  });
+</script>

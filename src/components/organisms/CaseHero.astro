@@ -1,0 +1,47 @@
+---
+const { name, link, year, services, heading, text } = Astro.props;
+
+import { Image } from "astro:assets";
+
+import img from "../../assets/about/office.webp";
+import Link from "../atoms/Link.astro";
+---
+
+<section class="section-main grid gap-5 md:gap-28">
+  <header>
+    <h1 class="heading-xlarge">{name}</h1>
+    <Image src={img} alt="Hejsa" class="rounded-small aspect-video object-cover" />
+  </header>
+  <section class="grid gap-10 md:grid-cols-[1fr_2fr] lg:grid-cols-2">
+    <div class="grid gap-8 items-start justify-items-start">
+      <Link href={link} target="_blank" variant="ButtonSecondary">Se løsningen</Link>
+      <div class="grid grid-cols-2 md:grid-cols-1 gap-4">
+        <div>
+          <h3 class="font-medium mb-2">År</h3>
+          <p class="mb-5">{year}</p>
+        </div>
+
+        <div>
+          <h3 class="font-medium">Services</h3>
+          <ul>
+            {
+              services.map((service: JSON) => {
+                return (
+                  <li class="capitalize">
+                    <Link href="/build" variant="LinkPrimary">
+                      {service}
+                    </Link>
+                  </li>
+                );
+              })
+            }
+          </ul>
+        </div>
+      </div>
+    </div>
+    <article>
+      <h2 class="heading-large mb-6">{heading}</h2>
+      <p class="text-text-secondary">{text}</p>
+    </article>
+  </section>
+</section>

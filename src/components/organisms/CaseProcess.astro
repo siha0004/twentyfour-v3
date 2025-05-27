@@ -1,0 +1,19 @@
+---
+import WrapperCaseImage from "../atoms/WrapperCaseImage.astro";
+
+const { heading, text, colorPri, colorSec } = Astro.props;
+---
+
+<section class="section-main grid md:grid-cols-2 gap-6 md:gap-12">
+  <div class="grid gap-3 md:gap-8 @container">
+    <WrapperCaseImage hexcolor={colorPri} />
+    <WrapperCaseImage hexcolor={colorSec} />
+  </div>
+  <article class="">
+    <h2 class="heading-tagline">Proces</h2>
+    <p class="heading-small mb-3">{heading}</p>
+    <p class="text-text-secondary">
+      {text}
+    </p>
+  </article>
+</section>

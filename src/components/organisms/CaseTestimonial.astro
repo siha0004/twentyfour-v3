@@ -1,0 +1,10 @@
+---
+const { quote, by } = Astro.props;
+---
+
+<section class="section-main grid place-content-center">
+  <div class="max-w-3xl grid gap-4">
+    <p class="heading-medium">{quote}</p>
+    <p class="flex gap-2 before:content-['-'] text-text-secondary text-body-large">{by}</p>
+  </div>
+</section>

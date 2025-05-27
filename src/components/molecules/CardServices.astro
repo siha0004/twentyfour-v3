@@ -1,0 +1,15 @@
+---
+import { Icon } from "astro-icon/components";
+
+const { data, text } = Astro.props;
+
+console.log("services data:", data);
+---
+
+<article class="bg-background-secondary p-8 rounded-small flex flex-col @container">
+  <header class="flex flex-col gap-16 @xs:flex-row @xs:justify-between @xs:mb-6">
+    <Icon name={data.shape} class="text-graphic-small @xs:text-graphic-medium @xs:order-2" />
+    <h3 class="text-heading-small mb-4">{data.title}</h3>
+  </header>
+  <p class="">{data.text}</p>
+</article>
