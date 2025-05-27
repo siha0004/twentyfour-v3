@@ -8,9 +8,9 @@ const { title, text, variant, button } = Astro.props;
 
 <section class=" grid grid-cols-4 lg:grid-cols-12 grid-rows-[repeat(4,_auto)] lg:max-h-[525px]  gap-6 lg:gap-x-6 border-b border-b-border-secondary">
   <article class="col-start-1 col-span-4 row-start-3 row-span-2 lg:col-span-6 pb-32">
-    <h1 class="heading-xlarge pb-3 lg:pb-5">{title}</h1>
+    <h1 class="heading-xlarge text-text-primary pb-3 lg:pb-5">{title}</h1>
     <p class="text-body-large text-text-secondary lg:max-w-2xl mb-8">{text}</p>
-    {button && <Link variant="ButtonSecondary"icon ="arrow-left" iconPosition="left" >Gå tilbage hvor du kom fra</Link> }
+    {button && <Link variant="ButtonSecondary"icon ="arrow-left" iconPosition="left" href="javascript:history.back()">Gå tilbage hvor du kom fra</Link> }
   </article>
  { variant == "default" &&
  ( 
