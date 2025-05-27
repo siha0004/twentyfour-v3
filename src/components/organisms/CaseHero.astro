@@ -24,7 +24,6 @@ if (!images[cover]) throw new Error(`"${cover}" does not exist in glob: "src/ass
   </header>
   <section class="grid gap-10 md:grid-cols-[1fr_2fr] lg:grid-cols-2">
     <div class="grid gap-8 items-start justify-items-start">
-      <Link href={link} target="_blank" variant="ButtonSecondary">Se løsningen</Link>
       <div class="grid grid-cols-2 md:grid-cols-1 gap-4">
         <div>
           <h3 class="font-medium mb-2">År</h3>
@@ -32,13 +31,13 @@ if (!images[cover]) throw new Error(`"${cover}" does not exist in glob: "src/ass
         </div>
 
         <div>
-          <h3 class="font-medium">Services</h3>
+          <h3 class="font-medium mb-2">Services</h3>
           <ul>
             {
               services.map((service: JSON) => {
                 return (
-                  <li class="capitalize">
-                    <Link href="/build" variant="LinkPrimary">
+                  <li class="capitalize mb-2">
+                    <Link href="/build" variant="LinkPrimary" iconPosition="none" size="link">
                       {service}
                     </Link>
                   </li>
@@ -48,6 +47,7 @@ if (!images[cover]) throw new Error(`"${cover}" does not exist in glob: "src/ass
           </ul>
         </div>
       </div>
+      <Link href={link} target="_blank" variant="ButtonSecondary">Se løsningen</Link>
     </div>
     <article>
       <h2 class="heading-large mb-6">{heading}</h2>
