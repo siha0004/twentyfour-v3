@@ -1,0 +1,123 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import Hero from "../components/organisms/Hero.astro";
+import CardCases from "../components/molecules/CardCases.astro";
+
+import Filter from "../components/atoms/Filter.astro";
+import { Icon } from "astro-icon/components";
+
+// Fetcher data fra databasen og ligger i konstanten 'data'
+const key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imxtc3N4eGtod2x2Y2F2emxhYW1nIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDc3NDcyNTQsImV4cCI6MjA2MzMyMzI1NH0.9aAcHyVj06h_jagTgEHjwZ3AYPGJtTOOpJxhTslbFIU";
+const url = "https://lmssxxkhwlvcavzlaamg.supabase.co/rest/v1/twentyfour-cases";
+
+const caseData = await fetch(url, {
+  method: "GET",
+  headers: {
+    apikey: key,
+  },
+}).then((res) => res.json());
+
+console.log("Tester", caseData);
+---
+
+<MainLayout title="Cases | Twentyfour">
+  <Hero variant="default" title="Cases" text="I mere end 10 år har vi hjulpet virksomheder med at løse digitale udfordringer – store som små. Vi elsker at finde løsninger, der faktisk virker – også når tingene bliver komplekse. " />
+  <section class="py-32 grid gap-10">
+    <header class="flex justify-between">
+      <div id="filters" class="flex gap-4 py-2 px-6 glass rounded-full border-2 border-border-primary">
+        <Filter filter="design" />
+        <Filter filter="webudvikling" />
+        <Filter filter="integration" />
+        <Filter filter="vedligeholdelse" />
+        <button data-clear class="capitalize cursor-pointer px-1 hover:border-b-2 hover:border-b-brand-raspberry border-b-brand-raspberry focus-visible:outline-1 focus-visible:rounded-small disabled:text-text-secondary">Ryd</button>
+      </div>
+      <div class="flex gap-1 items-center glass max-w-3xs px-4 py-2 border-2 border-border-primary rounded-full">
+        <input type="search" id="search" class="px-2 focus:outline-none focus:ring-0" />
+        <Icon name="search" class="text-body-xlarge" />
+      </div>
+    </header>
+    <ul class="grid grid-cols-3 gap-x-5 gap-y-11 items-start">
+      {caseData.map((oneCase) => <CardCases filters={oneCase.services.join(",")} data={oneCase} variant={oneCase.thumbnail_type} />)}
+      <!-- {cases.map((oneCase) => <CardCases filters={oneCase.services.join(",")} data={oneCase} variant={oneCase.thumbnail} />)} -->
+    </ul>
+    <footer class="grid place-content-center">
+      <p>Pagination</p>
+    </footer>
+  </section>
+</MainLayout>
+
+<script>
+  const filterButtons = document.querySelectorAll("[data-filter]");
+  const clearButton = document.querySelector("[data-clear]");
+  const cards = document.querySelectorAll(".case-card");
+  const searchInput = document.getElementById("search");
+
+  let activeFilters = [];
+
+  function updateView() {
+    const searchTerm = searchInput.value.trim().toLowerCase();
+
+    // Opdater hvilke cards vises
+    cards.forEach((card) => {
+      const services = card.getAttribute("data-services").split(",");
+      const title = card.querySelector("h3")?.textContent.toLowerCase() || "";
+
+      const matchesFilter = activeFilters.length === 0 || activeFilters.some((f) => services.includes(f));
+      const matchesSearch = searchTerm === "" || title.includes(searchTerm);
+
+      const shouldShow = matchesFilter && matchesSearch;
+
+      if (shouldShow) {
+        card.classList.remove("hidden");
+      } else {
+        card.classList.add("hidden");
+      }
+    });
+
+    // Opdater knappernes aktive styling
+    filterButtons.forEach((button) => {
+      const filter = button.getAttribute("data-filter");
+      if (activeFilters.includes(filter)) {
+        button.classList.add("border-b-2");
+      } else {
+        button.classList.remove("border-b-2");
+      }
+    });
+
+    // Opdater "Ryd filtre"-knap (afhænger kun af filter)
+    if (activeFilters.length > 0) {
+      clearButton.classList.remove("opacity-50", "pointer-events-none");
+    } else {
+      clearButton.classList.add("opacity-50", "pointer-events-none");
+    }
+  }
+
+  // Eventlistener som lytter på om der bliver trykket på et filter
+  filterButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const filter = button.getAttribute("data-filter");
+
+      if (activeFilters.includes(filter)) {
+        activeFilters = activeFilters.filter((f) => f !== filter);
+      } else {
+        activeFilters.push(filter);
+      }
+
+      updateView();
+    });
+  });
+
+  // Eventlistener som lytter på om der bliver ryddet filtre
+  clearButton.addEventListener("click", () => {
+    activeFilters = [];
+    updateView();
+  });
+
+  // Eventlistener som lytter på om der bliver tastet i søgefeltet
+  searchInput.addEventListener("input", () => {
+    updateView();
+  });
+
+  // Initiel visning
+  updateView();
+</script>

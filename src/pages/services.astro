@@ -1,0 +1,46 @@
+---
+import Hero from "../components/organisms/Hero.astro";
+import ScrollingContainer from "../components/organisms/ScrollingContainer.astro";
+import CardServices from "../components/molecules/CardServices.astro";
+import MainLayout from "../layouts/MainLayout.astro";
+import SectionCases from "../components/organisms/SectionCases.astro";
+
+import services from "../data/services.json";
+
+// Fetcher data fra databasen og ligger i konstanten 'data'
+const key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imxtc3N4eGtod2x2Y2F2emxhYW1nIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDc3NDcyNTQsImV4cCI6MjA2MzMyMzI1NH0.9aAcHyVj06h_jagTgEHjwZ3AYPGJtTOOpJxhTslbFIU";
+const url = "https://lmssxxkhwlvcavzlaamg.supabase.co/rest/v1/twentyfour-cases";
+
+const caseData = await fetch(url, {
+  method: "GET",
+  headers: {
+    apikey: key,
+  },
+}).then((res) => res.json());
+---
+
+<MainLayout title="Services | Twentyfour">
+  <section id="hero" class="py-8 lg:py-32">
+    <Hero
+      title="Services"
+      text="Vi skaber skræddersyede digitale løsninger, der passer til dine behov. Med over 10 års erfaring og et tværfagligt team, der kombinerer teknologi, design og problemløsning, hjælper vi dig med at udvikle løsninger, der skaber værdi for både din forretning og brugerne. Vi tilbyder full-service løsninger, fra idé til implementering."
+    />
+  </section>
+  <section id="services" class="py-8 lg:pb-32">
+    <ul class="grid lg:grid-cols-4 gap-5">
+      {
+        services.map((service) => {
+          return <CardServices data={service} />;
+        })
+      }
+    </ul>
+  </section>
+  <section class="full-bleed py-8 lg:pb-32">
+    <article class="place-content-center">
+      <h1 class="text-heading-tagline pb-2">Proces</h1>
+      <h2 class="text-heading-small pb-10">Hvad skal der ske herfra?</h2>
+    </article>
+    <ScrollingContainer />
+  </section>
+  <section class="py-8 lg:pb-32"><SectionCases data={caseData} /></section>
+</MainLayout>
