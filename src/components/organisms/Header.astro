@@ -130,6 +130,11 @@ import NavMobile from "../molecules/NavMobile.astro";
   const openButtonDesk = document.querySelector("#openModalBtnDesk");
   const modalDesk = document.getElementById("contactModalDesk");
   const closeBtnDesk = document.getElementById("closeModalBtnDesk");
+  const modalContent = document.getElementById("modalContent");
+
+  modalContent?.addEventListener("click", (e) => {
+    e.stopPropagation();
+  });
 
   openButtonDesk?.addEventListener("click", () => {
     // console.log("open Desktop click");
@@ -149,4 +154,17 @@ import NavMobile from "../molecules/NavMobile.astro";
       modalDesk.classList.add("hidden");
     }
   });
+
+  // THANK YOU
+  const thankYou = document.getElementById("thankYouMessage");
+
+  if (form && thankYou) {
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      // Skjul formular og vis tak-besked
+      form.classList.add("hidden");
+      thankYou.classList.remove("hidden");
+    });
+  }
 </script>
