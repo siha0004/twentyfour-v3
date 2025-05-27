@@ -41,7 +41,7 @@ const { name, hero, result, quote, grid, grid_type, process } = caseData;
 
 <MainLayout title="Services | Twentyfour">
   {hero ? <CaseHero name={name} data={hero} /> : <Hero button="true" variant="default" title="Der Bygges" text="Denne side er endnu ikke bygget færdig - men der arbejdes på sagen." />}
-  {result && <CaseResult data={result} />}
+  <!-- {result && <CaseResult data={result} />} -->
   {quote && <CaseTestimonial data={quote} />}
   {quote && <CaseProcess data={process} />}
   {grid && <CaseGallery data={grid} grid={grid_type} />}
