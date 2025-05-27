@@ -1,0 +1,11 @@
+---
+import { Image } from "astro:assets";
+
+const { hexcolor } = Astro.props;
+
+import img from "../../assets/images/kirk/thumbnail_image_kirk.jpg";
+---
+
+<div class=`${hexcolor} px-7 py-4 @sm:px-9 @sm:py-6 @md:px-14 @md:py-8 rounded-small`>
+  <Image src={img} alt="Hejsa" class="rounded-small" />
+</div>
