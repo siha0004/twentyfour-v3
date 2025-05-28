@@ -1,1 +1,22 @@
-[{ "heading": "" }, { "text": "" }, { "mockup": "" }, { "img": "" }]
+[
+  { "heading": "01 - Forståelse for projektet" },
+  { "text": "Første skridt er altid at forstå jeres behov og hvordan vi kan bruge vores erfaring til at skabe den rette løsning for jer. Vi er drevet af at skabe løsninger, der giver mening for din forretning – og derfor tager vi os tid til at lære dit projekt og dine mål at kende fra start, så vi kan definere tydelige krav med dit team.  Det skaber en fælles forståelse og gør, at vi arbejder målrettet fra første dag." },
+  { "mockup": "" },
+  { "img": "" },
+  { "heading": "02 - Udvikling af dit projekt" },
+  { "text": "Når detaljerne er på plads, er det her det sjove går i gang, hvor vores dygtige udviklingsteam kan få lov til at gøre det de er bedst til. Undervejs kan du løbende følge med i udviklingen og kommunikere med teamet på Basecamp." },
+  { "mockup": "" },
+  { "img": "" },
+  { "heading": "03 - Kvalitetssikring" },
+  { "text": "Kvaliteten skal være i orden. Derfor kombinerer vi grundige manuelle tests med automatiserede processer, så vi sikrer stabilitet, sikkerhed og stærk performance. Vi arbejder tæt sammen med dig for at sikre, høj kvalitet  – og at vi skaber en brugeroplevelse, vi sammen kan være stolte af." },
+  { "mockup": "" },
+  { "img": "" },
+  { "heading": "04 - Launch" },
+  { "text": "Dagen er kommet, hvor jeres webløsning skal ud i verden – og vi guider jer hele vejen. Uanset hvor meget man har forberedt sig, dukker der altid uforudset udfordringer op. Derfor fortsætter vores projektperiode altid ud over launchdagen, så vi kan håndtere netop du uforudsete. Vi sørger for onboarding af jeres team, så I føler jeg trykke i den daglig drift," },
+  { "mockup": "" },
+  { "img": "" },
+  { "heading": "05 - Vedligeholdelse" },
+  { "text": "Vi ved, at tekniske fejl kan ske – og vi kender alle frustrationen, når teknologien driller. Hos os stopper arbejdet ikke, når websitet eller webshoppen er lanceret, og systemerne spiller sammen. Tværtimod. Vi er drevet af ønsket om at skabe løsninger, der holder i længden – og derfor er vedligeholdelse mindst lige så vigtig som opbygningen." },
+  { "mockup": "" },
+  { "img": "" }
+]
