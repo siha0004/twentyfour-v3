@@ -70,26 +70,12 @@
   --text-body-large: clamp(1rem, 0.9368rem + 0.2151vw, 1.125rem);
   --text-body-xlarge: clamp(1.25rem, 1.1237rem + 0.4301vw, 1.5rem);
 
-  --text-body-tiny--line-height: calc(var(--text-body-tiny) * 150%);
-  --text-body-small--line-height: calc(var(--text-body-small) * 150%);
-  --text-body-medium--line-height: calc(var(--text-body-medium) * 150%);
-  --text-body-large--line-height: calc(var(--text-body-large) * 150%);
-  --text-body-xlarge--line-height: calc(var(--text-body-xlarge) * 150%);
-
-  /* --text-xs--line-height: calc(1 / 0.75); */
   --text-heading-xsmall: clamp(0.875rem, 0.8118rem + 0.2151vw, 1rem);
   --text-heading-small: clamp(1.25rem, 1.1237rem + 0.4301vw, 1.5rem);
   --text-heading-medium: clamp(1.5rem, 1.2473rem + 0.8602vw, 2rem);
   --text-heading-large: clamp(1.75rem, 1.1183rem + 2.1505vw, 3rem);
-  --text-heading-xlarge: clamp(4rem, 2.9892rem + 3.4409vw, 6rem);
-  --text-heading-huge: clamp(4rem, 0.0202rem + 13.5484vw, 11.875rem);
-
-  --text-heading-xsmall--line-height: calc(var(--text-heading-xsmall) * 110%);
-  --text-heading-small--line-height: calc(var(--text-heading-small) * 110%);
-  --text-heading-medium--line-height: calc(var(--text-heading-medium) * 110%);
-  --text-heading-large--line-height: calc(var(--text-heading-large) * 110%);
-  --text-heading-xlarge--line-height: calc(var(--text-heading-xlarge) * 110%);
-  --text-heading-huge--line-height: calc(var(--text-heading-huge) * 110%);
+  --text-heading-xlarge: clamp(3rem, 1.9565rem + 5.2174vw, 6rem);
+  --text-heading-huge: clamp(3.5rem, 0.587rem + 14.5652vw, 11.875rem);
 
   /* Grafikker */
   /* Clamp generator https://utopia.fyi/clamp/calculator?a=390,1728,32—48 */
@@ -189,22 +175,22 @@
   }
 
   .heading-display {
-    @apply text-heading-huge font-normal;
+    @apply text-heading-huge leading-tight font-normal;
   }
   .heading-xlarge {
-    @apply text-heading-xlarge font-bold;
+    @apply text-heading-xlarge leading-tight font-bold;
   }
   .heading-large {
-    @apply text-heading-large font-normal;
+    @apply text-heading-large leading-tight font-normal;
   }
   .heading-medium {
-    @apply text-heading-medium font-normal;
+    @apply text-heading-medium leading-tight font-normal;
   }
   .heading-small {
-    @apply text-heading-small font-medium;
+    @apply text-heading-small leading-tight font-medium;
   }
   .heading-tagline {
-    @apply text-heading-xsmall font-medium text-text-secondary;
+    @apply text-heading-xsmall leading-tight font-medium text-text-secondary;
   }
 
   .glass {
@@ -212,7 +198,7 @@
   }
 
   .section-main {
-    @apply py-32 border-b border-b-border-secondary;
+    @apply py-16 sm:py-24 lg:py-32 border-b border-b-border-secondary;
   }
 
   .large {
