@@ -7,12 +7,12 @@ const { data } = Astro.props;
     <div class="aspect-square bg-border-accent rounded-small mb-2"></div>
     <footer class="self-start grid gap-3">
       <div>
-        <h3>{data.name}</h3>
+        <h3 class="text-text-primary">{data.name}</h3>
         <p class="text-text-secondary text-body-tiny">{data.title}</p>
       </div>
       <ul>
-        <li class="text-body-small font-medium">{data.tel}</li>
-        <li class="text-body-small font-medium">{data.email}</li>
+        <li class="text-body-small font-medium text-text-primary">{data.tel}</li>
+        <li class="text-body-small font-medium text-text-primary">{data.email}</li>
       </ul>
     </footer>
   </article>
