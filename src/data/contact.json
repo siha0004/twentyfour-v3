@@ -1,5 +1,5 @@
 [
-  { "name": "Andrius Bendikas", "title": "CEO", "tel": "+45 29 95 37 57", "email": "andrius@twentyfour.dk" },
-  { "name": "Christina Müller", "title": "Head of Digital Advisory", "tel": "+45 74 38 84 58", "email": "christina@twentyfour.dk" },
-  { "name": "Kristian Thaulow", "title": "Head of Account Mangement", "tel": "+45 42 41 61 60", "email": "kristian@twentyfour.dk" }
+  { "name": "Andrius Bendikas", "title": "CEO", "tel": "+45 29 95 37 57", "email": "andrius@twentyfour.dk", "image": "/src/assets/images/andrius.png" },
+  { "name": "Christina Müller", "title": "Head of Digital Advisory", "tel": "+45 74 38 84 58", "email": "christina@twentyfour.dk", "image": "/src/assets/images/christina.png" },
+  { "name": "Kristian Thaulow", "title": "Head of Account Mangement", "tel": "+45 42 41 61 60", "email": "kristian@twentyfour.dk", "image": "/src/assets/images/christian.png" }
 ]
