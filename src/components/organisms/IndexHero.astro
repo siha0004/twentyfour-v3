@@ -10,7 +10,7 @@ import { Icon } from "astro-icon/components";
       <span class="col-start-1 col-span-2 lg:col-span-6 row-start-1 row-span-1 place-self-center">Digitalt</span>
       <span class="col-start-2 col-span-2 lg:col-start-4 lg:col-span-6 row-start-2 row-span-1">Bureau</span>
     </h1>
-    <p class="text-text-primary text-body-base col-start-3 lg:col-start-7 col-span-2 md:col-span-3 row-start-1 flex flex-col self-center ml-5">
+    <p class="text-text-primary text-body-base col-start-3 col-span-2 lg:col-start-7 md:col-span-3 row-start-1 flex flex-col self-center pl-12">
       <span class="flex items-center gap-2">
         <Icon name="logomark" role="img" aria-label="Twentyfour" class="text-body-large text-text-primary" />
         har fokus på løsninger,
@@ -32,7 +32,7 @@ import { Icon } from "astro-icon/components";
   gsap.registerPlugin(ScrollTrigger);
 
   gsap.to("#ring, #flower, #square, #butterfly", {
-    rotateZ: 120, // eller 360, alt efter hvor meget du vil have den til at dreje
+    rotateZ: 10, // eller 360, alt efter hvor meget du vil have den til at dreje
     scrollTrigger: {
       trigger: "#ring",
       start: "top", // starter når #ring rammer bunden af viewport
