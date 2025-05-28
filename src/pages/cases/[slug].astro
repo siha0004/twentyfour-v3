@@ -44,5 +44,5 @@ const { name, hero, result, quote, grid, grid_type, process } = caseData;
   {quote && <CaseTestimonial data={quote} />}
   {quote && <CaseProcess data={process} name={name} />}
   {grid && <CaseGallery data={grid} grid={grid_type} name={name} />}
-  <!-- {hero && <CaseMoreCases />} -->
+  {hero && <CaseMoreCases />}
 </MainLayout>
